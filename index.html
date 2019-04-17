@@ -29,6 +29,22 @@
               <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
             </svg>
           </button>
+
+          <div class="search__suggestion">
+            <ul class="search__suggestion-list">
+              <li class="search__suggestion-item-box">
+                <a href="#" class="search__suggestion-item">Hotel las Palmas</a>
+              </li>
+              <li class="search__suggestion-item-box">
+                <a href="#" class="search__suggestion-item"
+                  >Hotel Parador del Sol</a
+                >
+              </li>
+              <li class="search__suggestion-item-box">
+                <a href="#" class="search__suggestion-item">Hotel Circus</a>
+              </li>
+            </ul>
+          </div>
         </form>
 
         <nav class="user-nav">
@@ -38,11 +54,36 @@
             </svg>
             <span class="user-nav__notification">7</span>
           </div>
-          <div class="user-nav__icon-box">
+          <div class="user-nav__icon-box user-nav__message">
             <svg class="user-nav__icon">
               <use xlink:href="img/sprite.svg#icon-chat"></use>
             </svg>
             <span class="user-nav__notification">13</span>
+            <div class="user-nav__menu">
+              <ul class="user-nav__dropdown-menu user-nav__message-menu">
+                <li class="user-nav__dropdown-item user-nav__message-item">
+                  <p class="user-nav__dropdown-customer">Hotel las Palmas</p>
+                  <p class="user-nav__dropdown-message">
+                    Reservation confirmed. Looking forward to have you as our
+                    guest.
+                  </p>
+                </li>
+                <li class="user-nav__dropdown-item user-nav__message-item">
+                  <p class="user-nav__dropdown-customer">Hotel las Palmas</p>
+                  <p class="user-nav__dropdown-message">
+                    Reservation confirmed. Looking forward to have you as our
+                    guest.
+                  </p>
+                </li>
+                <li class="user-nav__dropdown-item user-nav__message-item">
+                  <p class="user-nav__dropdown-customer">Hotel las Palmas</p>
+                  <p class="user-nav__dropdown-message">
+                    Reservation confirmed. Looking forward to have you as our
+                    guest.
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="user-nav__user">
             <img
@@ -51,6 +92,19 @@
               class="user-nav__user-photo"
             />
             <span class="user-nav__user-name">Jonas</span>
+            <div class="user-nav__menu">
+              <ul class="user-nav__dropdown-menu">
+                <li class="user-nav__dropdown-item">
+                  Account
+                </li>
+                <li class="user-nav__dropdown-item">
+                  Payment methods
+                </li>
+                <li class="user-nav__dropdown-item">
+                  Log out
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </header>
@@ -106,6 +160,9 @@
                 alt="Photo of hotel 1"
                 class="gallery__photo"
               />
+              <div class="gallery__caption">
+                <span class="gallery__text">Hotel 1</span>
+              </div>
             </figure>
             <figure class="gallery__item">
               <img
@@ -113,6 +170,9 @@
                 alt="Photo of hotel 2"
                 class="gallery__photo"
               />
+              <div class="gallery__caption">
+                <span class="gallery__text">Hotel 2</span>
+              </div>
             </figure>
             <figure class="gallery__item">
               <img
@@ -120,6 +180,9 @@
                 alt="Photo of hotel 3"
                 class="gallery__photo"
               />
+              <div class="gallery__caption">
+                <span class="gallery__text">Hotel 3</span>
+              </div>
             </figure>
           </div>
 

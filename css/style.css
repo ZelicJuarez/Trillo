@@ -122,6 +122,7 @@ body {
 
 .search {
   flex: 0 0 40%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -148,6 +149,8 @@ body {
     .search__input::-webkit-input-placeholder {
       font-weight: 100;
       color: var(--color-grey-light-4); }
+    .search__input:focus ~ .search__suggestion {
+      visibility: visible; }
   .search__input:focus + .search__button {
     background-color: var(--color-grey-light-3); }
   .search__button {
@@ -161,6 +164,28 @@ body {
     height: 2rem;
     width: 2rem;
     fill: var(--color-grey-dark-3); }
+  .search__suggestion {
+    background-color: var(--color-grey-light-2);
+    width: 98%;
+    position: absolute;
+    top: 3rem;
+    left: 1.2rem;
+    z-index: 1000;
+    visibility: hidden; }
+  .search__suggestion-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 2rem; }
+  .search__suggestion-item-box:hover {
+    background-color: var(--color-grey-light-1);
+    padding-left: 1rem; }
+  .search__suggestion-item-box:not(:last-child) {
+    margin-bottom: 1rem; }
+  .search__suggestion-item, .search__suggestion-item:link {
+    text-decoration: none;
+    color: var(--color-grey-light-4);
+    font-weight: 300; }
 
 .user-nav {
   align-self: stretch;
@@ -193,10 +218,43 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
+  .user-nav__user {
+    position: relative; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1rem; }
+  .user-nav__menu {
+    background-color: var(--color-grey-dark-1);
+    -webkit-clip-path: polygon(100% 10%, 90% 10%, 85% 0, 80% 10%, 0 10%, 0% 100%, 100% 100%);
+    clip-path: polygon(100% 10%, 90% 10%, 85% 0, 80% 10%, 0 10%, 0% 100%, 100% 100%);
+    position: absolute;
+    top: 95%;
+    right: 0;
+    z-index: 1000;
+    visibility: hidden; }
+  .user-nav__dropdown-menu {
+    list-style: none;
+    width: 12rem;
+    margin: 1rem 2rem;
+    margin-top: 2rem; }
+  .user-nav__dropdown-item {
+    width: 100%; }
+    .user-nav__dropdown-item:not(:last-child) {
+      margin-bottom: 1rem; }
+  .user-nav__user:hover .user-nav__menu,
+  .user-nav__message:hover .user-nav__menu {
+    visibility: visible; }
+  .user-nav__message-menu {
+    width: 35rem;
+    padding: 2rem 0; }
+  .user-nav__message-item:not(:last-child) {
+    border-bottom: var(--line);
+    border-color: var(--color-grey-dark-2);
+    padding-bottom: 1rem; }
+  .user-nav__dropdown-customer {
+    margin-bottom: 1rem;
+    text-transform: uppercase; }
 
 .side-nav {
   font-size: 1.4rem;
@@ -272,9 +330,31 @@ body {
 
 .gallery {
   display: flex; }
+  .gallery__item {
+    position: relative;
+    cursor: pointer; }
   .gallery__photo {
     width: 100%;
     display: block; }
+  .gallery__caption {
+    background-color: var(--color-primary);
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 25%;
+    width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width 0.2s;
+    visibility: hidden; }
+  .gallery__text {
+    font-size: 2rem;
+    color: var(--color-grey-dark-1); }
+  .gallery__item:hover .gallery__caption {
+    width: 70%;
+    visibility: visible; }
 
 .overview {
   display: flex;
@@ -382,11 +462,16 @@ body {
     height: 1rem;
     width: 1rem;
     margin-right: 0.7rem;
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover; }
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover; }
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      .list__item::before {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;
